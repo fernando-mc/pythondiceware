@@ -1,13 +1,8 @@
 #!/usr/bin/env python
 
-import itertools
 import argparse
 
-valid_numbers = set("123456")
-
-def test_set(input):
-    return set(input) <= valid_numbers
-
+#Parsing Arguments
 parser = argparse.ArgumentParser()
 
 parser.add_argument("-dr", "--dicerolls",
@@ -17,23 +12,34 @@ args = parser.parse_args()
 
 dicerolls = args.dicerolls
 
-number_of_words = len(dicerolls) // 5
+#Validation Checks
+failures_type = ["Basic use: ./diceware.py -dr <yournumbers>"
+                  "You need at least 25 dicerolls (doctors reccomend 30)!"
+                  "Are you sure you entered all numbers between 1 and 6?"]
 
 responses_to_number_of_words = ["You should really have at least 6 words",
-                                "Great! 6 words it is!",
-                                "Great! 7 words it is!",
-                                "Okay, eight words is a little parnoid",
+                                "Great! 6 words it is.",
+                                "Great! 7 words it is.",
+                                "Great! 8 words it is.",
                                 "You don't need more than eight words!",
-                                "I dunno what's happening. You broke me!"
-                                "That's not a number between 5 and 9."]
+                                "You have extra numbers, that's okay with me."]
+
+number_of_words = len(dicerolls) // 5
+
 if number_of_words >= 5:
     print responses_to_number_of_words[number_of_words - 5]
-else:
-    print "You need at least 25 dicerolls to get a password (30 reccomended)"
+elif number_of_words < 10:
+    print responses_to_number_of_words[5]
+else
+    print failures_type[1]
 
-#Check for valid inputs
+valid_dicerolls = set("123456")
+
+def test_set(input):
+    return set(input) <= valid_dicerolls
+
 if(test_set(dicerolls)):
-    print "Looks like your diceroll inputs are numbers 1-6!"
+    print "Diceroll inputs confirmed as numbers 1-6. Nice."
 else:
     print "Please make sure your diceroll inputs are numbers 1-6!"
 
