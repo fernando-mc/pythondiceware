@@ -10,8 +10,6 @@ Diceware is a great method to use for creating a secure, yet easy to memorize, m
 
 More Information
 
-<a href="http://www.fmcorey.com/?p=551">My website:</a> An overview of Diceware in comparison to other proported password creation schemes.
-
 <a href="https://theintercept.com/2015/03/26/passphrases-can-memorize-attackers-cant-guess/">The Intercept:</a> An in-depth overview on the reasoning behind Diceware.
 
 <a href="http://arstechnica.com/information-technology/2014/03/diceware-passwords-now-need-six-random-words-to-thwart-hackers/">ArsTechnica:</a> An explanation about the need for at <strong>least</strong> 6 word diceware passphrases.
